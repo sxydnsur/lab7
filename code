@@ -1,0 +1,122 @@
+# Task 1: Create a text file and write content to it.
+def create_text_file(file_name, content):
+    with open(file_name, 'w') as file:
+        file.write(content)
+
+# Creating a file named "text1.txt" with some text content
+sample_content = """My name is Jack.
+Duracell is an American manufacturer.
+The ocean is blue."""
+create_text_file("text1.txt", sample_content)
+
+
+# Task 2: Read and display the content of a file.
+def display_file_content(file_name):
+    with open(file_name, 'r') as file:
+        for line in file:
+            print(line.strip())
+
+# Reading and displaying the content of the "text1.txt" file
+display_file_content("text1.txt")
+
+
+# Task 3: Read a random line from a file.
+import random
+
+def read_random_line(file_name):
+    with open(file_name, 'r') as file:
+        lines = file.readlines()
+        return random.choice(lines).strip()
+
+# Reading a random line from the "text1.txt" file
+random_line = read_random_line("text1.txt")
+print("Random line:", random_line)
+
+
+# Task 4: Count uppercase characters in a file.
+def count_uppercase_chars(file_name):
+    with open(file_name, 'r') as file:
+        content = file.read()
+        return sum(1 for char in content if char.isupper())
+
+# Counting uppercase characters in the "text1.txt" file
+uppercase_count = count_uppercase_chars("text1.txt")
+print("Uppercase characters count:", uppercase_count)
+
+# Task 5: Count the number of lines not starting with 'D' from a text file.
+def count_lines_not_starting_with_D(file_name):
+    with open(file_name, 'r') as file:
+        lines = [line.strip() for line in file if not line.startswith('D')]
+        return len(lines)
+
+# Counting lines not starting with 'D' in the "text1.txt" file
+lines_count = count_lines_not_starting_with_D("text1.txt")
+print("Lines not starting with 'D':", lines_count)
+
+# Task 6: Count words in a text file ending with the character 'F'.
+def count_words_ending_with_F(file_name):
+    with open(file_name, 'r') as file:
+        words = file.read().split()
+        return sum(1 for word in words if word.lower().endswith('f'))
+
+# Counting words ending with 'F' in the "text1.txt" file
+words_count = count_words_ending_with_F("text1.txt")
+print("Words ending with 'F':", words_count)
+
+# Task 7: Count occurrences of the words "all" and "none" in a text file.
+def count_all_and_none_words(file_name):
+    with open(file_name, 'r') as file:
+        content = file.read().lower()
+        count_all = content.count('all')
+        count_none = content.count('none')
+        return count_all, count_none
+
+# Counting occurrences of 'all' and 'none' in the "text1.txt" file
+all_count, none_count = count_all_and_none_words("text1.txt")
+print("Occurrences of 'all':", all_count)
+print("Occurrences of 'none':", none_count)
+
+# Task 8: Count the frequency of words in a file.
+from collections import Counter
+
+def count_word_frequency(file_name):
+    with open(file_name, 'r') as file:
+        words = file.read().split()
+        return Counter(words)
+
+# Counting word frequency in the "text1.txt" file
+word_frequency = count_word_frequency("text1.txt")
+print("Word frequency:", word_frequency)
+
+# Task 9: Find the longest word in a text file.
+def find_longest_word(file_name):
+    with open(file_name, 'r') as file:
+        words = file.read().split()
+        return max(words, key=len)
+
+# Finding the longest word in the "text1.txt" file
+longest_word = find_longest_word("text1.txt")
+print("Longest word:", longest_word)
+
+# Task 10: Display the corrected version of the entire content with 'B' replaced by 'J'.
+def correct_characters_B_to_J(file_name):
+    with open(file_name, 'r') as file:
+        content = file.read().replace('B', 'J')
+        return content
+
+# Displaying the corrected content of the "text1.txt" file
+corrected_content = correct_characters_B_to_J("text1.txt")
+print("Corrected content:", corrected_content)
+
+# Bonus: Task 11 - Read each character of a text file and count occurrences of characters 'A' and 'B'.
+def count_occurrences_A_and_B(file_name):
+    with open(file_name, 'r') as file:
+        content = file.read()
+        count_A = content.lower().count('a')
+        count_B = content.lower().count('b')
+        return count_A, count_B
+
+# Counting occurrences of 'A' and 'B' in the "text1.txt" file
+A_count, B_count = count_occurrences_A_and_B("text1.txt")
+print("Occurrences of A:", A_count)
+print("Occurrences of B:", B_count)
